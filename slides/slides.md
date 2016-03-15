@@ -107,6 +107,8 @@ R Data Types {data-background="images/bg-3.png"}
 R Data Types {data-background="images/bg-3.png"}
 ------------
 
+[Example source](https://github.com/scw/r-devsummit-2016-talk/examples/data-types.R)
+
 <div style="float: right; width: 300px">
 ![](images/matrix.png)
 </div>
