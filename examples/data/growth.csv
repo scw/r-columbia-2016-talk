@@ -1,0 +1,10 @@
+"type"	"classes"	"obs_201110_count"
+authority	'law enforcement vessel', 'search and rescue vessel', 'vessel engaged in military operations'	1440257
+cargo	'cargo', 'cargo ship'	84374415
+fishing	'fishing vessel'	6869357
+high-speed	'high speed craft'	2520190
+other	'wing in ground craft', 'other type of ship', 'ship according to resolution no 18'	4749067
+passenger	'passenger ship', 'passenger'	15919095
+pleasure	'pleasure craft', 'yachts & special craft', 'sailing vessel'	40721308
+support	'tug/pilot', 'tug', 'towing vessel', 'vessel engaged in dredging or underwater operation', 'pilot vessel', 'towing vessel with length > 200m or breadth > 25m', 'port tender', 'vessel engaged in diving operations', 'vessel with anti-pollution facilities or equipment', 'medical transport'	33599694
+tanker	'tanker'	31213537
