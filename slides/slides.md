@@ -2,21 +2,10 @@
 % Shaun Walbridge
 
 <section data-background="images/title-bg.png">
-<h3 class="med">[``https://github.com/scw/r-devsummit-2016-talk``](https://github.com/scw/r-columbia-2016-talk)</h2>
-<h3>[Handout PDF](https://4326.us/esri/r/columbia-2016-r-arcgis-presentation-handout.pdf)</h3>
-<h3>[High Quality PDF (4MB)](https://4326.us/esri/r/columbia-2016-r-arcgis-presentation-full.pdf)</h3>
+<h3 class="med">[``https://github.com/scw/r-columbia-2016-talk``](https://github.com/scw/r-columbia-2016-talk)</h2>
+<h3>[Handout PDF](https://4326.us/esri/r-columbia/columbia-2016-r-arcgis-presentation-handout.pdf)</h3>
+<h3>[High Quality PDF (4MB)](https://4326.us/esri/r-columbia/columbia-2016-r-arcgis-presentation-full.pdf)</h3>
 <h3>[Resources Section](https://4326.us/esri/r/#resources)</h3>
-</section>
-
-<section data-background="images/title-bg.png">
-<h2>Background Qs</h2>
-
-<ul>
- <li>ArcGIS</li>
- <li>R</li>
- <li>automation / ModelBuilder</li>
- <li>programming</li>
-</ul>
 </section>
 
 Data Science {data-background="images/bg-3.png"}
