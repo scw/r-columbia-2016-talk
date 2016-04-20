@@ -1,11 +1,22 @@
-% Getting Data Science with R and ArcGIS
-% Shaun Walbridge; Mark Janikas; Marjean Pobuda
+% Using R with ArcGIS
+% Shaun Walbridge
 
 <section data-background="images/title-bg.png">
 <h3 class="med">[``https://github.com/scw/r-devsummit-2016-talk``](https://github.com/scw/r-devsummit-2016-talk)</h2>
 <h3>[Handout PDF](https://4326.us/esri/r/devsummit-2016-data-science-r-arcgis-presentation-handout.pdf)</h3>
 <h3>[High Quality PDF (4MB)](https://4326.us/esri/r/devsummit-2016-data-science-r-arcgis-presentation-full.pdf)</h3>
 <h3>[Resources Section](https://4326.us/esri/r/#resources)</h3>
+</section>
+
+<section data-background="images/title-bg.png">
+<h2>Background Qs</h2>
+
+<ul>
+ <li>ArcGIS</li>
+ <li>R</li>
+ <li>automation / ModelBuilder</li>
+ <li>programming</li>
+</ul>
 </section>
 
 Data Science {data-background="images/bg-3.png"}
@@ -44,14 +55,35 @@ Like the Geographic: a similar relationship between our domain and the knowledge
 Goodchild bit: difference is for stats, methods came hundred years ago (e.g. Bayes Method), but only recently have we had the ability to actually compute it for hard problems. GIS is the other way around: data came first, we built up methods around it.
 </div>
 
-Data Science Languages {data-background="images/bg-3.png"}
-------------
+Scientific Languages {data-background="images/bg-3.png"}
+--------------------
 
-Languages commonly used in data science:
+Languages commonly used in scientific and statistical problem solving:
 
  ![](images/logos/R_64x64.png){class="tight" style="width:32px"} R &mdash;![](images/logos/Python_64x64.png){class="tight" style="width:32px"} Python &mdash; ![](images/logos/matlabicon_128.png){class="tight" style="width:32px"} Matlab &mdash; ![](images/logos/Julia_64x64.png){class="tight" style="width:32px"} Julia
 
+**Ju** **Pyt**e**R** = Jupyter
+
+Scientific Languages {data-background="images/bg-3.png"}
+--------------------
 We're a big Python shop, so why R?
+
+. . .
+
+"Why can't everyone just use _Python_?"
+
+. . .
+
+≈"Why can't everyone just speak _English_?"
+
+. . .
+
+ * More like dialects. We speak with our Canadian friends, right?
+
+ * Complementary in many workflows. People use both to get real work done.
+
+Scientific Languages {data-background="images/bg-3.png"}
+--------------------
 
 [R vs Python for Data Science](http://www.kdnuggets.com/2015/05/r-vs-python-data-science.html)
 
@@ -68,9 +100,10 @@ Why ![](images/logos/R_logo.svg.png){class="tight" style="width: 96px"}? {data-b
  - Powerful core data structures and operations 
     + Data frames, functional programming
  - Unparalleled breadth of statistical routines
-    + The _de facto_ language of Statisticians
- - `CRAN`: 6400 packages for solving problems
- - Versatile and powerful plotting
+    + The _de facto_ language of Statisticians, state of the art statsitical methods available
+ - A [fast growing programming language](http://www.r-bloggers.com/r-is-the-fastest-growing-language-on-stackoverflow/) in the past ~5 years
+  - [`CRAN`](http://cran.cnr.berkeley.edu/web/views/): 8000 packages for solving problems
+   - Powerful language for creating high quality plots and graphics
 
 . . . 
 
@@ -90,6 +123,17 @@ Written in C -- some parts are very fast, others less so. R code is relatively p
 CRAN is epic. Get immediate access to best of breed methods, written by domain experts.
 
 </div>
+
+Why ![](images/logos/R_logo.svg.png){class="tight" style="width: 96px"}? {data-background="images/bg-3.png"}
+------
+
+ - Open source. Dynamic language, both functional + object oriented
+ - CRAN is impressive. Best of breed methods, written by domain experts.
+ - Includes domain specific languages for statistics. E.g.:
+```r
+fit.results <- lm(pollution ~ elevation + rain + ppm.nox + elevation:rain)
+```
+ - Similar properties in other parts of the language
 
 R Data Types {data-background="images/bg-3.png"}
 ------------
@@ -199,9 +243,8 @@ Statistical Formulas {data-background="images/bg-7.png"}
 --------------------
 
 ```r
-fit.results <- lm(pollution ~ elevation + rainfall + ppm.nox + urban.density)
+fit.results <- lm(pollution ~ elevation + rain + ppm.nox + elevation:rain)
 ```
-
  - Domain specific language for statistics
  - Similar properties in other parts of the language
  - [``caret``](https://cran.r-project.org/web/packages/caret/vignettes/caret.pdf) for model specification consistency
@@ -505,14 +548,6 @@ possible future improvements:
 Resources {data-background="images/bg-3.png"}
 =========
 
-Other Sessions {data-background="images/bg-3.png"}
---------------
-
- - [Integrating Open-source Statistical Packages with ArcGIS](https://devsummit.schedule.esri.com/#schedule/56b2873e4be5dd46a3000287/56b2873e4be5dd46a3000288)
- - [Python: Developing Geoprocessing Tools](https://devsummit.schedule.esri.com/#schedule/56b287284be5dd46a3000171/56b287284be5dd46a3000172)
- - [Harnessing the Power of Python in ArcGIS Using the Conda Distribution](https://devsummit.schedule.esri.com/#schedule/56b287364be5dd46a3000235/56b287364be5dd46a3000236)
- - [Python: Working with Scientific Data](https://devsummit.schedule.esri.com/#schedule/56b2873f4be5dd46a300028d/56b2873f4be5dd46a300028)
-
 R {data-background="images/bg-3.png"}
 -
 
@@ -532,30 +567,28 @@ Spatial R / Data Science {data-background="images/bg-3.png"}
 ArcGIS + R {data-background="images/bg-3.png"}
 -----------
 
- * [UC Plenary Demo: Statistical Integration with R](http://video.esri.com/watch/4651/statistical-integration-with-r)
-    + Demo of [SSN: spatial modeling on stream networks](https://cran.r-project.org/web/packages/SSN/index.html)
- * Cam Plouffe (Esri CA) ran an [R ArcGIS Workshop](https://github.com/cplouffe/r-arcgis-workshop), covers materials in more depth.
+ * Cam Plouffe (Esri CA) gave a two-part workshop that wrapped up yesterday, find out more in this [post](https://blogs.esri.com/esri/arcgis/2016/03/21/integrating-r-and-arcgis-free-webinar/)
+    - [Integrating R with ArcGIS: Part One](https://www.youtube.com/watch?v=9lpPuCmVmxc)
+ * [Getting Data Science with R](https://4326.us/esri/r) DevSummit talk this is one based on
 
-Materials {data-background="images/bg-3.png"}
-----------
+Courses {data-background="images/bg-3.png"}
+--------
 
  Courses:
 
  - [High Performance Scientific Computing](https://www.coursera.org/course/scicomp)
  - [The Data Scientist's Toolbox](https://www.coursera.org/course/datascitoolbox)
+ - A number of them on Coursera -- useful topics even if you don't plan on using R
 
- Books:
+Books {data-background="images/bg-3.png"}
+-----
 
  - [Spatial Statistical Data Analysis for GIS Users](http://www.esri.com/news/releases/11-2qtr/esri-press-releases-spatial-statistical-data-analysis-for-gis-users.html) Konstantin Krivoruchko (GA creator) 
     + Too big to print. Tons of useful stuff, covers both R and ArcGIS extensively.
-
-Packages {data-background="images/bg-3.png"}
---------
-
-Clustering demo covers `mclust` and `sp`.
-
- - Tree-based models, e.g. [CART](http://www.statmethods.net/advstats/cart.html)
- - Time series data, e.g. [Little Book of R](https://a-little-book-of-r-for-time-series.readthedocs.org/en/latest/)
+ - [Practical data science with R]()
+ - [Advanced R]()
+ - [Applied Spatial Data Analysis with R]()
+ - [Machine Learning with R]()
 
 R ArcGIS Extensions {data-background="images/bg-3.png"}
 ----------------------------
@@ -599,20 +632,9 @@ Community {data-background="images/bg-5.png"}
 Thanks {data-background="images/bg-5.png"}
 ------
 
- - R team: Dmitry Pavlushko, Steve Kopp, Konstantin Krivoruchko; today's speakers 
+ - R team: Dmitry Pavlushko, Shaun Walbridge, Steve Kopp, Mark Janikas, Konstantin Krivoruchko
     + <a href=mailto:r_bridge@esri.com>Contact Us</a>
  - Geoprocessing Team
-
-Rate This Session {data-background="images/bg-5.png"}
------------------
-
-**iOS, Android**: Feedback from within the app
-
-. . . 
-
-**Windows Phone, or no smartphone?** Cuneiform tablets accepted.
-
-![](images/Amarna_Akkadian_letter_rotated_2.png){style="border: none; background: none; box-shadow: none;"}
 
 <span style="display:none">fin</span> {data-background="images/end.png"}
 ---

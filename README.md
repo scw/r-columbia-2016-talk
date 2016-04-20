@@ -1,10 +1,10 @@
 Getting Data Science with R and ArcGIS
 ======================================
 
-### Shaun Walbridge & Mark Janikas & Marjeen Pobuda
-### Esri DevSummit 2016
+### Shaun Walbridge
+### Columbia University 2016-04-20
 
-**[View the Slides](https://4326.us/esri/r/)**
+**[View the Slides](https://4326.us/esri/r-columbia/)**
 
 **[Download Handout Version (PDF)](https://4326.us/esri/r/devsummit-2016-data-science-r-arcgis-presentation-handout.pdf)**
 

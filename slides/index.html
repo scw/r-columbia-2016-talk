@@ -5,9 +5,7 @@
   <link rel="shortcut icon" href="reveal.js/favicon.ico">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Shaun Walbridge">
-  <meta name="author" content="Mark Janikas">
-  <meta name="author" content="Marjean Pobuda">
-  <title>Getting Data Science with R and ArcGIS</title>
+  <title>Using R with ArcGIS</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -73,11 +71,9 @@ code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
   <div class="reveal">
     <div class="slides">
 
-<section data-background="images/title.png" class="title">
-  <h1 class="title">Getting Data Science with R and ArcGIS</h1>
+<section data-background="images/title-bg.png" class="title">
+  <h1 class="title">Using R with ArcGIS</h1>
   <h2 class="author">Shaun Walbridge</h2>
-  <h2 class="author">Mark Janikas</h2>
-  <h2 class="author">Marjean Pobuda</h2>
 </section>
 
 <section class="slide level2">
@@ -95,6 +91,25 @@ code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
 <h3>
 <a href="https://4326.us/esri/r/#resources">Resources Section</a>
 </h3>
+</section>
+<section data-background="images/title-bg.png">
+<h2>
+Background Qs
+</h2>
+<ul>
+<li>
+ArcGIS
+</li>
+<li>
+R
+</li>
+<li>
+automation / ModelBuilder
+</li>
+<li>
+programming
+</li>
+</ul>
 </section>
 </section>
 <section><section id="data-science" class="titleslide slide level1" data-background="images/bg-3.png"><h1>Data Science</h1></section><section id="data-science-1" class="slide level2" data-background="images/bg-3.png">
@@ -121,11 +136,28 @@ code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
 <p>Like the Geographic: a similar relationship between our domain and the knowledge we need which spans into other domains. Stats is similar -- can't do it without someone else's data!</p>
 <p>Goodchild bit: difference is for stats, methods came hundred years ago (e.g. Bayes Method), but only recently have we had the ability to actually compute it for hard problems. GIS is the other way around: data came first, we built up methods around it.</p>
 </aside>
-</section><section id="data-science-languages" class="slide level2" data-background="images/bg-3.png">
-<h1>Data Science Languages</h1>
-<p>Languages commonly used in data science:</p>
+</section><section id="scientific-languages" class="slide level2" data-background="images/bg-3.png">
+<h1>Scientific Languages</h1>
+<p>Languages commonly used in scientific and statistical problem solving:</p>
 <p><img src="images/logos/R_64x64.png" class="tight" style="width:32px" /> R —<img src="images/logos/Python_64x64.png" class="tight" style="width:32px" /> Python — <img src="images/logos/matlabicon_128.png" class="tight" style="width:32px" /> Matlab — <img src="images/logos/Julia_64x64.png" class="tight" style="width:32px" /> Julia</p>
+<p><strong>Ju</strong> <strong>Pyt</strong>e<strong>R</strong> = Jupyter</p>
+</section><section id="scientific-languages-1" class="slide level2" data-background="images/bg-3.png">
+<h1>Scientific Languages</h1>
 <p>We're a big Python shop, so why R?</p>
+<div class="fragment">
+<p>&quot;Why can't everyone just use <em>Python</em>?&quot;</p>
+</div>
+<div class="fragment">
+<p>≈&quot;Why can't everyone just speak <em>English</em>?&quot;</p>
+</div>
+<div class="fragment">
+<ul>
+<li><p>More like dialects. We speak with our Canadian friends, right?</p></li>
+<li><p>Complementary in many workflows. People use both to get real work done.</p></li>
+</ul>
+</div>
+</section><section id="scientific-languages-2" class="slide level2" data-background="images/bg-3.png">
+<h1>Scientific Languages</h1>
 <p><a href="http://www.kdnuggets.com/2015/05/r-vs-python-data-science.html">R vs Python for Data Science</a></p>
 <aside class="notes">
 <p>[really the case? just perhaps highlight these four, many others... SQL, classic languages, ...]</p>
@@ -140,10 +172,11 @@ code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
 </ul></li>
 <li>Unparalleled breadth of statistical routines
 <ul>
-<li>The <em>de facto</em> language of Statisticians</li>
+<li>The <em>de facto</em> language of Statisticians, state of the art statsitical methods available</li>
 </ul></li>
-<li><code>CRAN</code>: 6400 packages for solving problems</li>
-<li>Versatile and powerful plotting</li>
+<li>A <a href="http://www.r-bloggers.com/r-is-the-fastest-growing-language-on-stackoverflow/">fast growing programming language</a> in the past ~5 years</li>
+<li><a href="http://cran.cnr.berkeley.edu/web/views/"><code>CRAN</code></a>: 8000 packages for solving problems</li>
+<li>Powerful language for creating high quality plots and graphics</li>
 </ul>
 <div class="fragment">
 <p><br></p>
@@ -158,6 +191,15 @@ code > span.in { color: #7f9f7f; font-weight: bold; } /* Information */
 <p>CRAN is epic. Get immediate access to best of breed methods, written by domain experts.</p>
 </aside>
 </div>
+</section><section id="why-1" class="slide level2" data-background="images/bg-3.png">
+<h1>Why <img src="images/logos/R_logo.svg.png" class="tight" style="width: 96px" />?</h1>
+<ul>
+<li>Open source. Dynamic language, both functional + object oriented</li>
+<li>CRAN is impressive. Best of breed methods, written by domain experts.</li>
+<li><p>Includes domain specific languages for statistics. E.g.:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit.results &lt;-<span class="st"> </span><span class="kw">lm</span>(pollution ~<span class="st"> </span>elevation +<span class="st"> </span>rain +<span class="st"> </span>ppm.nox +<span class="st"> </span>elevation:rain)</code></pre></div></li>
+<li><p>Similar properties in other parts of the language</p></li>
+</ul>
 </section><section id="r-data-types" class="slide level2" data-background="images/bg-3.png">
 <h1>R Data Types</h1>
 <p><a href="https://en.wikipedia.org/wiki/Data_type">Data types</a> you're used to seeing...</p>
@@ -239,7 +281,7 @@ df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(person, met.
 </figure>
 </section><section id="statistical-formulas" class="slide level2" data-background="images/bg-7.png">
 <h1>Statistical Formulas</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit.results &lt;-<span class="st"> </span><span class="kw">lm</span>(pollution ~<span class="st"> </span>elevation +<span class="st"> </span>rainfall +<span class="st"> </span>ppm.nox +<span class="st"> </span>urban.density)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit.results &lt;-<span class="st"> </span><span class="kw">lm</span>(pollution ~<span class="st"> </span>elevation +<span class="st"> </span>rain +<span class="st"> </span>ppm.nox +<span class="st"> </span>elevation:rain)</code></pre></div>
 <ul>
 <li>Domain specific language for statistics</li>
 <li>Similar properties in other parts of the language</li>
@@ -330,46 +372,46 @@ df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(person, met.
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">ArcGIS</th>
-<th style="text-align: left;">R</th>
-<th style="text-align: left;">Example Value</th>
+<th>ArcGIS</th>
+<th>R</th>
+<th>Example Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Address Locator</td>
-<td style="text-align: left;">Character</td>
-<td style="text-align: left;"><code>Address Locators\\MGRS</code></td>
+<td>Address Locator</td>
+<td>Character</td>
+<td><code>Address Locators\\MGRS</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Any</td>
-<td style="text-align: left;">Character</td>
-<td style="text-align: left;"> </td>
+<td>Any</td>
+<td>Character</td>
+<td> </td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Boolean</td>
-<td style="text-align: left;">Logical</td>
-<td style="text-align: left;"> </td>
+<td>Boolean</td>
+<td>Logical</td>
+<td> </td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Coordinate System</td>
-<td style="text-align: left;">Character</td>
-<td style="text-align: left;"><code>&quot;PROJCS[\&quot;WGS_1984_UTM_Zone_19N\&quot;...</code></td>
+<td>Coordinate System</td>
+<td>Character</td>
+<td><code>&quot;PROJCS[\&quot;WGS_1984_UTM_Zone_19N\&quot;...</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Dataset</td>
-<td style="text-align: left;">Character</td>
-<td style="text-align: left;"><code>&quot;C:\\workspace\\projects\\results.shp&quot;</code></td>
+<td>Dataset</td>
+<td>Character</td>
+<td><code>&quot;C:\\workspace\\projects\\results.shp&quot;</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Date</td>
-<td style="text-align: left;">Character</td>
-<td style="text-align: left;"><code>&quot;5/6/2015 2:21:12 AM&quot;</code></td>
+<td>Date</td>
+<td>Character</td>
+<td><code>&quot;5/6/2015 2:21:12 AM&quot;</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Double</td>
-<td style="text-align: left;">Numeric</td>
-<td style="text-align: left;">22.87918</td>
+<td>Double</td>
+<td>Numeric</td>
+<td>22.87918</td>
 </tr>
 </tbody>
 </table>
@@ -378,46 +420,46 @@ df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(person, met.
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">ArcGIS</th>
-<th style="text-align: left;">R</th>
-<th style="text-align: left;">Example Value</th>
+<th>ArcGIS</th>
+<th>R</th>
+<th>Example Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Extent</td>
-<td style="text-align: left;">Vector (xmin, ymin, xmax, ymax)</td>
-<td style="text-align: left;">c(0, -591.561, 1000, 992)</td>
+<td>Extent</td>
+<td>Vector (xmin, ymin, xmax, ymax)</td>
+<td>c(0, -591.561, 1000, 992)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Field</td>
-<td style="text-align: left;">Character</td>
-<td style="text-align: left;"> </td>
+<td>Field</td>
+<td>Character</td>
+<td> </td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Folder</td>
-<td style="text-align: left;">Character</td>
-<td style="text-align: left;">full path, use with e.g. <code>file.info()</code></td>
+<td>Folder</td>
+<td>Character</td>
+<td>full path, use with e.g. <code>file.info()</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Long</td>
-<td style="text-align: left;">Long</td>
-<td style="text-align: left;">19827398L</td>
+<td>Long</td>
+<td>Long</td>
+<td>19827398L</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">String</td>
-<td style="text-align: left;">Character</td>
-<td style="text-align: left;"> </td>
+<td>String</td>
+<td>Character</td>
+<td> </td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Text File</td>
-<td style="text-align: left;">Character</td>
-<td style="text-align: left;">full path</td>
+<td>Text File</td>
+<td>Character</td>
+<td>full path</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Workspace</td>
-<td style="text-align: left;">Character</td>
-<td style="text-align: left;">full path</td>
+<td>Workspace</td>
+<td>Character</td>
+<td>full path</td>
 </tr>
 </tbody>
 </table>
@@ -529,15 +571,7 @@ df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(person, met.
 <p>possible future improvements: - Conda for managing R environments - raster support</p>
 </aside>
 </section></section>
-<section><section id="resources" class="titleslide slide level1" data-background="images/bg-3.png"><h1>Resources</h1></section><section id="other-sessions" class="slide level2" data-background="images/bg-3.png">
-<h1>Other Sessions</h1>
-<ul>
-<li><a href="https://devsummit.schedule.esri.com/#schedule/56b2873e4be5dd46a3000287/56b2873e4be5dd46a3000288">Integrating Open-source Statistical Packages with ArcGIS</a></li>
-<li><a href="https://devsummit.schedule.esri.com/#schedule/56b287284be5dd46a3000171/56b287284be5dd46a3000172">Python: Developing Geoprocessing Tools</a></li>
-<li><a href="https://devsummit.schedule.esri.com/#schedule/56b287364be5dd46a3000235/56b287364be5dd46a3000236">Harnessing the Power of Python in ArcGIS Using the Conda Distribution</a></li>
-<li><a href="https://devsummit.schedule.esri.com/#schedule/56b2873f4be5dd46a300028d/56b2873f4be5dd46a300028">Python: Working with Scientific Data</a></li>
-</ul>
-</section><section id="r-1" class="slide level2" data-background="images/bg-3.png">
+<section><section id="resources" class="titleslide slide level1" data-background="images/bg-3.png"><h1>Resources</h1></section><section id="r-1" class="slide level2" data-background="images/bg-3.png">
 <h1>R</h1>
 <p>Looking for a package to solve a problem? Use the <a href="https://cran.r-project.org/web/views/">CRAN Task Views</a>.</p>
 <p>Tons of good books and resources on R available, check out the <a href="http://rseek.org/">RSeek</a> engine to find resources for the language which can be difficult to locate because of the name.</p>
@@ -551,32 +585,31 @@ df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(person, met.
 </section><section id="arcgis-r" class="slide level2" data-background="images/bg-3.png">
 <h1>ArcGIS + R</h1>
 <ul>
-<li><a href="http://video.esri.com/watch/4651/statistical-integration-with-r">UC Plenary Demo: Statistical Integration with R</a>
+<li>Cam Plouffe (Esri CA) gave a two-part workshop that wrapped up yesterday, find out more in this <a href="https://blogs.esri.com/esri/arcgis/2016/03/21/integrating-r-and-arcgis-free-webinar/">post</a>
 <ul>
-<li>Demo of <a href="https://cran.r-project.org/web/packages/SSN/index.html">SSN: spatial modeling on stream networks</a></li>
+<li><a href="https://www.youtube.com/watch?v=9lpPuCmVmxc">Integrating R with ArcGIS: Part One</a></li>
 </ul></li>
-<li>Cam Plouffe (Esri CA) ran an <a href="https://github.com/cplouffe/r-arcgis-workshop">R ArcGIS Workshop</a>, covers materials in more depth.</li>
+<li><a href="https://4326.us/esri/r">Getting Data Science with R</a> DevSummit talk this is one based on</li>
 </ul>
-</section><section id="materials" class="slide level2" data-background="images/bg-3.png">
-<h1>Materials</h1>
+</section><section id="courses" class="slide level2" data-background="images/bg-3.png">
+<h1>Courses</h1>
 <p>Courses:</p>
 <ul>
 <li><a href="https://www.coursera.org/course/scicomp">High Performance Scientific Computing</a></li>
 <li><a href="https://www.coursera.org/course/datascitoolbox">The Data Scientist's Toolbox</a></li>
+<li>A number of them on Coursera -- useful topics even if you don't plan on using R</li>
 </ul>
-<p>Books:</p>
+</section><section id="books" class="slide level2" data-background="images/bg-3.png">
+<h1>Books</h1>
 <ul>
 <li><a href="http://www.esri.com/news/releases/11-2qtr/esri-press-releases-spatial-statistical-data-analysis-for-gis-users.html">Spatial Statistical Data Analysis for GIS Users</a> Konstantin Krivoruchko (GA creator)
 <ul>
 <li>Too big to print. Tons of useful stuff, covers both R and ArcGIS extensively.</li>
 </ul></li>
-</ul>
-</section><section id="packages" class="slide level2" data-background="images/bg-3.png">
-<h1>Packages</h1>
-<p>Clustering demo covers <code>mclust</code> and <code>sp</code>.</p>
-<ul>
-<li>Tree-based models, e.g. <a href="http://www.statmethods.net/advstats/cart.html">CART</a></li>
-<li>Time series data, e.g. <a href="https://a-little-book-of-r-for-time-series.readthedocs.org/en/latest/">Little Book of R</a></li>
+<li><a href="">Practical data science with R</a></li>
+<li><a href="">Advanced R</a></li>
+<li><a href="">Applied Spatial Data Analysis with R</a></li>
+<li><a href="">Machine Learning with R</a></li>
 </ul>
 </section><section id="r-arcgis-extensions" class="slide level2" data-background="images/bg-3.png">
 <h1>R ArcGIS Extensions</h1>
@@ -630,21 +663,12 @@ df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(person, met.
 </section><section id="thanks" class="slide level2" data-background="images/bg-5.png">
 <h1>Thanks</h1>
 <ul>
-<li>R team: Dmitry Pavlushko, Steve Kopp, Konstantin Krivoruchko; today's speakers
+<li>R team: Dmitry Pavlushko, Shaun Walbridge, Steve Kopp, Mark Janikas, Konstantin Krivoruchko
 <ul>
 <li><a href=mailto:r_bridge@esri.com>Contact Us</a></li>
 </ul></li>
 <li>Geoprocessing Team</li>
 </ul>
-</section><section id="rate-this-session" class="slide level2" data-background="images/bg-5.png">
-<h1>Rate This Session</h1>
-<p><strong>iOS, Android</strong>: Feedback from within the app</p>
-<div class="fragment">
-<p><strong>Windows Phone, or no smartphone?</strong> Cuneiform tablets accepted.</p>
-<figure>
-<img src="images/Amarna_Akkadian_letter_rotated_2.png" style="border: none; background: none; box-shadow: none;" />
-</figure>
-</div>
 </section><section id="fin" class="slide level2" data-background="images/end.png">
 <h1><span style="display:none">fin</span></h1>
 </section></section>

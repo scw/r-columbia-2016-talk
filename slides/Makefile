@@ -1,6 +1,6 @@
-short = r
-deck = data-science-r-arcgis
-event = devsummit-2016
+short = r-columbia
+deck = r-arcgis
+event = columbia-2016
 theme = esri-dev-summit-2016
 upload_loc = 4326.us:esri/$(short)
 public_loc = https://4326.us/esri/$(short)
